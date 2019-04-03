@@ -1,0 +1,24 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape src/tests/*.test.js | tap-spec",
+    "devTest": "nodemon src/tests/*.test.js | tap-spec",
+    "coverage": "istanbul src/tests/*.test.js",
+    "start": "node src/server.js",
+    "devStart": "nodemon src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.18.10",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.1"
+  }
+}
