@@ -5,10 +5,13 @@ const router = (request, response) => {
     // console.log(request);
     // console.log(url);
     if (url === "/") {
-     handler.handlerHomeRoute(request, response)
+     handler.handlerHomeRoute(request, response);
     }
      else if (url.includes('/public')) {
       handler.handlerPublic(request, response, url);
+    } else if (url.includes('/guardian')) {
+     
+      handler.handlerGuardian(request, response);
     }
     else {
     handler.handler404(request, response);
