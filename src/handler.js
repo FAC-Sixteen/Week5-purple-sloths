@@ -76,12 +76,13 @@ const handlerGuardian = (req, res) => {
         else {
             // console.log(body);
             res.writeHead(200,{'Content-Type' : 'application/json'});
-            const trial = JSON.stringify(apiRequest);
+            const trial = JSON.stringify(body);
+            // console.log(trial);
             res.end(trial);
         }
     });
 
-  
+
 
 }
 
