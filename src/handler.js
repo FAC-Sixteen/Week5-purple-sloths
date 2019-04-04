@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const errMesg = "There was an error that you for being patient";
+const request = require('request');
 
 const handlerHomeRoute = (request, response)=>{
   // console.log('We are in else block', response.parser.HTTPParser[0]);
@@ -55,11 +56,19 @@ const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','
         response.writeHead(404,{'Content-Type' : 'text/html'})
         response.end(file);
     }
-}  );
+});
 }
+
+const handlerGuardian = (request, response) => {
+    const input = request.url.split('=')[1];
+    const apiUrl = `https://content.guardianapis.com/search?q=${input}`;
+    request();
+}
+
 
 module.exports = {
     handler404,
     handlerHomeRoute,
-    handlerPublic
+    handlerPublic,
+    handlerGuardian
 }
