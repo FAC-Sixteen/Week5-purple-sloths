@@ -5,7 +5,6 @@ const request = require('request');
 require('env2')('.env');
 
 const handlerHomeRoute = (request, response)=>{
-  // console.log('We are in else block', response.parser.HTTPParser[0]);
 fs.readFile(path.join(__dirname, '..','public/index.html'), (err,file) => {
     if(err){
         console.log(err)
@@ -14,9 +13,7 @@ fs.readFile(path.join(__dirname, '..','public/index.html'), (err,file) => {
     }
     else {
         response.writeHead(200,{'Content-Type' : 'text/html'})
-        // console.log('We are in else block', response.body[0]);
         response.end(file);
-        // console.log('We are in else block', file);
     }
 });
 }
@@ -61,11 +58,9 @@ const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','
 }
 
 const handlerGuardian = (req, res) => {
-    console.log('This is in the handler', req.url);
     const endpoint = req.url;
     const input = endpoint.split('=')[1];
-    const apiUrl = `https://content.guardianapis.com/search?q=${input}&api-key=${process.env.API_KEY}`;
-   console.log(apiUrl);
+    const apiUrl = `https://content.guardianapis.com/search?q=${input}&show-blocks=all&page=1&from-date=2019-01-01&api-key=${process.env.API_KEY}`;
 
     const apiRequest= request(apiUrl, { json: true}, (error, response, body)=>{
         if (error) {
@@ -74,18 +69,11 @@ const handlerGuardian = (req, res) => {
             response.end(errMesg);
         }
         else {
-            // console.log(body);
             res.writeHead(200,{'Content-Type' : 'application/json'});
-            const trial = JSON.stringify(body);
-            // console.log(trial);
-            res.end(trial);
+            res.end(JSON.stringify(body));
         }
     });
-
-
-
 }
-
 
 module.exports = {
     handler404,
