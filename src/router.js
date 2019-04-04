@@ -10,6 +10,7 @@ const router = (request, response) => {
      else if (url.includes('/public')) {
       handler.handlerPublic(request, response, url);
     } else if (url.includes('/guardian')) {
+     
       handler.handlerGuardian(request, response);
     }
     else {

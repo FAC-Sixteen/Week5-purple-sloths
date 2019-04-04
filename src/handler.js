@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const errMesg = "There was an error that you for being patient";
 const request = require('request');
+require('env2')('.env');
 
 const handlerHomeRoute = (request, response)=>{
   // console.log('We are in else block', response.parser.HTTPParser[0]);
@@ -59,10 +60,29 @@ const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','
 });
 }
 
-const handlerGuardian = (request, response) => {
-    const input = request.url.split('=')[1];
-    const apiUrl = `https://content.guardianapis.com/search?q=${input}`;
-    request();
+const handlerGuardian = (req, res) => {
+    console.log('This is in the handler', req.url);
+    const endpoint = req.url;
+    const input = endpoint.split('=')[1];
+    const apiUrl = `https://content.guardianapis.com/search?q=${input}&api-key=${process.env.API_KEY}`;
+   console.log(apiUrl);
+
+    const apiRequest= request(apiUrl, { json: true}, (error, response, body)=>{
+        if (error) {
+            response.writeHead(500,{'Content-Type' : 'text/html'})
+            console.log(errorRequest);
+            response.end(errMesg);
+        }
+        else {
+            console.log(body);
+            res.writeHead(200,{'Content-Type' : 'application/json'});
+            const trial = JSON.stringify(apiRequest);
+            res.end(trial);
+        }
+    });
+
+  
+
 }
 
 
