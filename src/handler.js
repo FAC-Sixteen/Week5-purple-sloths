@@ -74,7 +74,7 @@ const handlerGuardian = (req, res) => {
             response.end(errMesg);
         }
         else {
-            console.log(body);
+            // console.log(body);
             res.writeHead(200,{'Content-Type' : 'application/json'});
             const trial = JSON.stringify(apiRequest);
             res.end(trial);
