@@ -20,6 +20,10 @@ fetch(url)
 const responseToFrontend = (input, json) => {
   console.log('this is the input', input);
   console.log('this is the json', json);
+  while(articleContainer.firstChild) {
+    articleContainer.removeChild(articleContainer.firstChild);
+}
+
   for (let i=0; i<3; i++) {
     //Creates preview content on submit press
     const article = document.createElement('ARTICLE');
