@@ -3,22 +3,23 @@ const path = require('path');
 const errMesg = "There was an error that you for being patient";
 
 const handlerHomeRoute = (request, response)=>{
-
+  // console.log('We are in else block', response.parser.HTTPParser[0]);
 fs.readFile(path.join(__dirname, '..','public/index.html'), (err,file) => {
     if(err){
         console.log(err)
         response.writeHead(500,{'Content-Type' : 'text/html'})
-        response.end(errMesg); 
+        response.end(errMesg);
     }
     else {
         response.writeHead(200,{'Content-Type' : 'text/html'})
+        // console.log('We are in else block', response.body[0]);
         response.end(file);
+        // console.log('We are in else block', file);
     }
-}  );
+});
 }
 
 const handlerPublic = (request, response, url) => {
- 
     const extensionSelector = {
         html: "text/html",
         css: "text/css",
@@ -27,15 +28,15 @@ const handlerPublic = (request, response, url) => {
         json: "application/json",
         jpg: "image/jpeg",
         png: "image/png",
-        jpeg : 'image/jpeg',     
+        jpeg : 'image/jpeg',
     }
 
     const extensionType = url.split('.')[1];
-    fs.readFile(path.join(__dirname, '..','public',url), (err,file) => {
+    fs.readFile(path.join(__dirname, '..',url), (err,file) => {
         if(err){
             console.log(err)
             response.writeHead(500,{'Content-Type' : 'text/html'})
-            response.end(errMesg); 
+            response.end(errMesg);
         }
         else {
             response.writeHead(200,{'Content-Type' : extensionSelector[extensionType]});
@@ -48,7 +49,7 @@ const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','
     if(err){
         console.log(err)
         response.writeHead(500,{'Content-Type' : 'text/html'})
-        response.end(errMesg); 
+        response.end(errMesg);
     }
     else {
         response.writeHead(404,{'Content-Type' : 'text/html'})
@@ -57,7 +58,7 @@ const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','
 }  );
 }
 
-module.exports = { 
+module.exports = {
     handler404,
     handlerHomeRoute,
     handlerPublic
