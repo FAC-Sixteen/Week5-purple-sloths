@@ -11,15 +11,14 @@ submit.addEventListener('click', (e) => {
 //Requests the Guardian API in the back-end
 const domRequest = (value) => {
   const url = `/guardian?=${value}`
-  console.log(url);
+
 fetch(url)
 .then(response => response.json())
 .then(json => responseToFrontend(input, json));
 }
 
 const responseToFrontend = (input, json) => {
-  console.log('this is the input', input);
-  console.log('this is the json', json);
+
   while(articleContainer.firstChild) {
     articleContainer.removeChild(articleContainer.firstChild);
 }
