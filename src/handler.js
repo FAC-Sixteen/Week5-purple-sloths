@@ -62,7 +62,7 @@ const handlerGuardian = (req, res) => {
     const input = endpoint.split('=')[1];
     const apiUrl = `https://content.guardianapis.com/search?q=${input}&show-blocks=all&page=1&from-date=2019-01-01&api-key=${process.env.API_KEY}`;
 
-    const apiRequest= request(apiUrl, { json: true}, (error, response, body)=>{
+    request(apiUrl, { json: true}, (error, response, body)=>{
         if (error) {
             response.writeHead(500,{'Content-Type' : 'text/html'})
             response.end(errMesg);

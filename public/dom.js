@@ -2,11 +2,19 @@
 const input = document.getElementById('input');
 const submit = document.getElementById('btn');
 const articleContainer = document.getElementById('article-container');
+const purpleSlothDOM = document.getElementById('purpleSloth');
 
 //Fires domRequest() when button is clicked
 submit.addEventListener('click', (e) => {
     domRequest(input.value);
 });
+
+//Fires domRequest() when enter key is pressed
+document.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    domRequest(input.value);
+  }
+})
 
 //Requests the Guardian API in the back-end
 const domRequest = (value) => {
@@ -19,9 +27,16 @@ fetch(url)
 
 const responseToFrontend = (input, json) => {
 
+  //Removes any purple sloths on the page
+  if(articleContainer.purpleSlothDOM) {
+    articleContainer.removeChild(purpleSlothDOM);
+  }
+  
+  //Removes any previous articles on the page
+
   while(articleContainer.firstChild) {
     articleContainer.removeChild(articleContainer.firstChild);
-}
+  }
 
   for (let i=0; i<3; i++) {
     //Creates preview content on submit press
