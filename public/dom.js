@@ -25,6 +25,40 @@ fetch(url)
 .then(json => responseToFrontend(input, json));
 }
 
+
+//fall back for null resluts from API
+const fallbackMesg = () => {
+  //Creates preview content on submit press
+  const article = document.createElement('ARTICLE');
+  const header = document.createElement('H2');
+  const linkWrapHeader = document.createElement('A');
+  const image = document.createElement('IMG');
+  const paragraph = document.createElement('P');
+
+  //object properties
+  const headerURL = '#';
+  const headerTitle = `No results found for ${input.value}`;
+  const imageContent = '/public/assets/No-results-found.jpg';
+  const articleContent = 'Sorry we have checked The Guardian API and found no results';
+
+  //Sets preview content to above properties
+  header.textContent = headerTitle;
+  linkWrapHeader.href = headerURL;
+  paragraph.textContent = articleContent;
+  image.setAttribute('src', imageContent);
+  article.setAttribute('class', 'article')
+
+  //Gives HTML structure to DOM elements
+  linkWrapHeader.appendChild(header);
+  article.appendChild(linkWrapHeader);
+  article.appendChild(image);
+  article.appendChild(paragraph);
+  articleContainer.appendChild(article);
+}
+
+
+
+
 const responseToFrontend = (input, json) => {
 
   //Removes any purple sloths on the page
@@ -37,6 +71,11 @@ const responseToFrontend = (input, json) => {
   while(articleContainer.firstChild) {
     articleContainer.removeChild(articleContainer.firstChild);
   }
+
+  // fallback if search results return are null
+if (json.response.results[0] === undefined) { 
+  fallbackMesg(); 
+} 
 
   for (let i=0; i<3; i++) {
     //Creates preview content on submit press
@@ -72,3 +111,4 @@ const responseToFrontend = (input, json) => {
     articleContainer.appendChild(article);
   }
 };
+
