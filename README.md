@@ -1,4 +1,4 @@
-### NewsRUs
+# NewsRUs
 ![](https://i.imgur.com/3mZbOQQ.png)
 
 ---
