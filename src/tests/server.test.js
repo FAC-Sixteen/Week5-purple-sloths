@@ -23,7 +23,6 @@ test('Home returns the response', (t) => {
   .expect('Content-Type', /html/)
   .end((err, response) => {
     t.error(err);
-    // console.log(typeof(response.text));
     t.equal(typeof(response.text), 'string', 'Should return a string');
     t.end();
   })
