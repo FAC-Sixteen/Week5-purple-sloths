@@ -1,14 +1,18 @@
+### NewsRUs
+![](https://i.imgur.com/3mZbOQQ.png)
+
+---
+
 [![Build Status](https://travis-ci.org/FAC-Sixteen/Week5-purple-sloths.svg?branch=master)](https://travis-ci.org/FAC-Sixteen/Week5-purple-sloths)
-
-
 
 This repo contains our team project for Week 5 of Founders and Coders. 
 
-NewsRus is a website that enables users to quickly search the guardian website and return a filtered list of Guardian news articles.
+NewsRUs is a website that enables users to quickly search the guardian website and return a filtered list of Guardian news articles.
 
-A cool feature - hit search and see what  article pops up 
+Try hitting search and see what article pops up!
 
-This project is hosted live on : [HEROKU](https://calm-fjord-11755.herokuapp.com/) 
+This project is hosted live on [HEROKU](https://calm-fjord-11755.herokuapp.com/).
+
 
 ---
 
@@ -16,7 +20,7 @@ This project is hosted live on : [HEROKU](https://calm-fjord-11755.herokuapp.com
 
 James @jameslevine
 
-Freddie @fweddie
+Freddie @fweddi
 
 Dylan @dalmano
 
@@ -53,12 +57,12 @@ And we also mapped out our file architecture before we typed a line of code!
 
 ### Cool Apis we found
 
-Eventful API http://api.eventful.com/
-TFL https://api.tfl.gov.uk/
-Tickmaster API https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
-Openweather https://openweathermap.org/api
-OP Geolocation https://ipgeolocation.io/
-Pinterest https://developers.pinterest.com/docs/getting-started/introduction/
+* Eventful API http://api.eventful.com/
+* TFL https://api.tfl.gov.uk/
+* Ticketmaster API https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+* Openweather https://openweathermap.org/api
+* OP Geolocation https://ipgeolocation.io/
+* Pinterest https://developers.pinterest.com/docs/getting-started/introduction/
 
 ---
 
@@ -89,10 +93,10 @@ You can also run the project live on Heroku [here](https://calm-fjord-11755.hero
 
 ### Cool things we learnt?
 
-Kate - How to use request and fetch.
-Freddie - How data flows from front-end to back-end and back again.
-Dylan - Connecting the front-end to back-end and also the npm path module.
-James - Learning how to test (with supertest and tape).
+* Kate - How to use request and fetch.
+* Freddie - How data flows from front-end to back-end and back again.
+* Dylan - Connecting the front-end to back-end and also the npm path module.
+* James - Learning how to test (with supertest and tape).
 
 ---
 
@@ -108,9 +112,16 @@ We set up a basic front-end, listed the project on Heroku and set up the file st
 Built rest of back end and then connected frontend to backend.
 We also populated the front-end with the returned Guardian data from the API requests.
 
-**Day 3** :+1::+1::+1:
-Based on issues, we:
+---
 
+**Day 3** :+1::+1::+1:
+
+Based on issues, we:
+* removed console logs and excess code
+* added keyboard access to the page
+* added a visual explanation for when no results are found
+* added placeholder text to explain what the page does
+* did a purple sloth
 
 ---
 
@@ -128,11 +139,6 @@ Based on issues, we:
 
 * word cloud Api to display all the words from each article in a word cloud.
 * twitter api displaying the news feed of the requested search
-
----
-
-### Preview
-![](https://i.imgur.com/3mZbOQQ.png)
 
 ---
 
