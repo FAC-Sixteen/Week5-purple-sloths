@@ -8,6 +8,13 @@ submit.addEventListener('click', (e) => {
     domRequest(input.value);
 });
 
+//Fires domRequest() when enter key is pressed
+document.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    domRequest(input.value);
+  }
+})
+
 //Requests the Guardian API in the back-end
 const domRequest = (value) => {
   const url = `/guardian?=${value}`
