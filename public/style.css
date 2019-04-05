@@ -20,7 +20,7 @@ body {
 }
 h1{
  font-family: 'PlayFair-Display', serif;
-margin: 20px 25vw;
+margin: 20px 28vw;
 }
 h2{
     font-family: 'PlayFair-Display', serif; 
@@ -40,17 +40,16 @@ a:visited {}
 
 #input {
     font-family: 'WorkSans', sans-serif;
-    width: 50vw;
+    width: 40vw;
     min-width: 250px;
     border: 3px solid #1a75ff;
     border-radius: 5px;  
     -webkit-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
-    font-size: 130%;
+    font-size: 110%;
 }
 
 #input:focus {
-    width: 60vw;
     border: 4px solid #39ac39;
 }
 
