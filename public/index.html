@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="icon" href="/public/assets/sloth-_1_.ico" sizes="16x16" type="image/x-icon">
+    <link rel="stylesheet" href="/public/style.css" media="screen">
+    <title>Search</title>
 </head>
 <body>
-    <h1>HI</h1>
+    <h1>NewsRus</h1>
 
-    <input type='text' id="input" >
-    <button id='btn' for='input'></button>
+   <div id="inputField"> <input type='text' id="input" placeholder="Random" aria-label="This in an input field to search the guardian API, if you click the submit button without any input you get random results.">
+    <button id='btn' for='input' aria-label="submit button for search"></button> </div>
     <section id="article-container">
+            <footer> <p>NewsRus uses The Guardian API for content </p></footer>
     </section>
+    
 <script src="/public/dom.js"> </script>
 </body>
 </html>
