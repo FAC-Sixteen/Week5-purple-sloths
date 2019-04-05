@@ -57,5 +57,3 @@ const responseToFrontend = (input, json) => {
     articleContainer.appendChild(article);
   }
 };
-
-
