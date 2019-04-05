@@ -2,8 +2,7 @@ const handler = require('./handler');
 
 const router = (request, response) => {
     const url =  request.url;
-    // console.log(request);
-    // console.log(url);
+
     if (url === "/") {
      handler.handlerHomeRoute(request, response);
     }

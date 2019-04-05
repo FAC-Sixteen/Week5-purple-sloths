@@ -7,7 +7,6 @@ require('env2')('.env');
 const handlerHomeRoute = (request, response)=>{
 fs.readFile(path.join(__dirname, '..','public/index.html'), (err,file) => {
     if(err){
-        console.log(err)
         response.writeHead(500,{'Content-Type' : 'text/html'})
         response.end(errMesg);
     }
@@ -36,7 +35,6 @@ const handlerPublic = (request, response, url) => {
     const extensionType = url.split('.')[1];
     fs.readFile(path.join(__dirname, '..',url), (err,file) => {
         if(err){
-            console.log(err)
             response.writeHead(500,{'Content-Type' : 'text/html'})
             response.end(errMesg);
         }
@@ -49,7 +47,6 @@ const handlerPublic = (request, response, url) => {
 
 const handler404 =(request,response) => {fs.readFile(path.join(__dirname, '..','public/error.html'), (err,file) => {
     if(err){
-        console.log(err)
         response.writeHead(500,{'Content-Type' : 'text/html'})
         response.end(errMesg);
     }
@@ -68,7 +65,6 @@ const handlerGuardian = (req, res) => {
     request(apiUrl, { json: true}, (error, response, body)=>{
         if (error) {
             response.writeHead(500,{'Content-Type' : 'text/html'})
-            console.log(errorRequest);
             response.end(errMesg);
         }
         else {
