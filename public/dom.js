@@ -2,6 +2,7 @@
 const input = document.getElementById('input');
 const submit = document.getElementById('btn');
 const articleContainer = document.getElementById('article-container');
+const purpleSlothDOM = document.getElementById('purpleSloth');
 
 //Fires domRequest() when button is clicked
 submit.addEventListener('click', (e) => {
@@ -27,9 +28,16 @@ fetch(url)
 const responseToFrontend = (input, json) => {
   console.log('this is the input', input);
   console.log('this is the json', json);
+
+  //Removes any purple sloths on the page
+  if(articleContainer.purpleSlothDOM) {
+    articleContainer.removeChild(purpleSlothDOM);
+  }
+  
+  //Removes any previous articles on the page
   while(articleContainer.firstChild) {
     articleContainer.removeChild(articleContainer.firstChild);
-}
+  }
 
   for (let i=0; i<3; i++) {
     //Creates preview content on submit press
