@@ -28,6 +28,9 @@ const handlerPublic = (request, response, url) => {
         jpg: "image/jpeg",
         png: "image/png",
         jpeg : 'image/jpeg',
+        svg : 'image/svg+xml',
+        otf : 'font/otf',
+         ttf : 'font/ttf'
     }
 
     const extensionType = url.split('.')[1];

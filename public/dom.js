@@ -27,7 +27,7 @@ const responseToFrontend = (input, json) => {
   for (let i=0; i<3; i++) {
     //Creates preview content on submit press
     const article = document.createElement('ARTICLE');
-    const header = document.createElement('H1');
+    const header = document.createElement('H2');
     const linkWrapHeader = document.createElement('A');
     const image = document.createElement('IMG');
     const paragraph = document.createElement('P');
@@ -48,6 +48,7 @@ const responseToFrontend = (input, json) => {
     linkWrapHeader.href = headerURL;
     paragraph.textContent = modifyContent(articleContent);
     image.setAttribute('src', imageContent);
+    article.setAttribute('class', 'article')
 
     //Gives HTML structure to DOM elements
     linkWrapHeader.appendChild(header);
